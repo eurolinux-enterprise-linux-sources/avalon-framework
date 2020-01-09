@@ -1,0 +1,428 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<!--*** This is a generated file.  Do not edit.  ***-->
+<link rel="stylesheet" href="skin/tigris.css" type="text/css">
+<link rel="stylesheet" href="skin/mysite.css" type="text/css">
+<link rel="stylesheet" href="skin/site.css" type="text/css">
+<link media="print" rel="stylesheet" href="skin/print.css" type="text/css">
+<title>Avalon Framework - Guide - OOP best Practices</title>
+</head>
+<body bgcolor="white" class="composite">
+<!--================= start Banner ==================-->
+<div id="banner">
+<table width="100%" cellpadding="8" cellspacing="0" summary="banner" border="0">
+<tbody>
+<tr>
+<!--================= start Group Logo ==================-->
+<td align="left">
+<div class="groupLogo">
+<a href="http://www.apache.org/"><img border="0" class="logoImage" alt="Apache" src="images/group-logo.gif"></a>
+</div>
+</td>
+<!--================= end Group Logo ==================-->
+<!--================= start Project Logo ==================--><td align="right">
+<div class="projectLogo">
+<a href="http://avalon.apache.org/"><img border="0" class="logoImage" alt="Apache Avalon" src="images/project-logo.gif"></a>
+</div>
+</td>
+<!--================= end Project Logo ==================-->
+</tr>
+</tbody>
+</table>
+</div>
+<!--================= end Banner ==================-->
+<!--================= start Main ==================-->
+<table width="100%" cellpadding="0" cellspacing="0" border="0" summary="nav" id="breadcrumbs">
+<tbody>
+<!--================= start Status ==================-->
+<tr class="status">
+<td>
+<!--================= start BreadCrumb ==================--><a href=""></a><a href=""></a><a href=""></a>
+<!--================= end BreadCrumb ==================--></td><td id="tabs">
+<!--================= start Tabs ==================-->
+<div class="tab">
+<span class="unselectedTab"><a href="http://avalon.apache.org/">Avalon Home</a></span> | <span class="selectedTab"><a href="index.html"><font color="#000000">Framework</font></a></span> | <span class="unselectedTab"><a href="http://avalon.apache.org/components/">Components</a></span> | <span class="unselectedTab"><a href="http://avalon.apache.org/phoenix/">Phoenix</a></span> | <span class="unselectedTab"><a href="http://avalon.apache.org/seca/">SECA</a></span> | <span class="unselectedTab"><a href="http://avalon.apache.org/apps/">Apps</a></span>
+</div>
+<!--================= end Tabs ==================-->
+</td>
+</tr>
+</tbody>
+</table>
+<!--================= end Status ==================-->
+<table id="main" width="100%" cellpadding="8" cellspacing="0" summary="" border="0">
+<tbody>
+<tr valign="top">
+<!--================= start Menu ==================-->
+<td id="leftcol">
+<div id="navcolumn">
+<div class="menuBar">
+<div class="menu">
+<span class="menuLabel">Essentials</span>
+        
+<div class="menuItem">
+<a href="index.html">Overview</a>
+</div>
+        
+<div class="menuItem">
+<a href="getting-started.html">Getting Started</a>
+</div>
+        
+<div class="menuItem">
+<a href="http://avalon.apache.org/bindownload.cgi">Download</a>
+</div>
+    
+</div>
+<div class="menu">
+<span class="menuLabel">Guide</span>
+        
+<div class="menuItem">
+<span class="menuSelected">OOP best Practices</span>
+</div>
+        
+<div class="menuItem">
+<a href="guide-patterns-what-are.html">What are Patterns?</a>
+</div>
+        
+<div class="menuItem">
+<a href="guide-patterns-in-avalon.html">Patterns in Avalon</a>
+</div>
+        
+<div class="menuItem">
+<a href="guide-cop-what-is.html">What is COP?</a>
+</div>
+        
+<div class="menuItem">
+<a href="guide-cop-in-avalon.html">COP in Avalon</a>
+</div>
+        
+<div class="menuItem">
+<a href="guide-where-to-go-from-here.html">Where to Go from here</a>
+</div>
+    
+</div>
+<div class="menu">
+<span class="menuLabel">Reference</span>
+        
+<div class="menuItem">
+<a href="changes.html">Changes</a>
+</div>
+        
+<div class="menuItem">
+<a href="http://avalon.apache.org/framework/api/index.html">API Docs</a>
+</div>
+        
+<div class="menuItem">
+<a href="reference-the-lifecycle.html">The Lifecycle</a>
+</div>
+        
+<div class="menuItem">
+<a href="reference-containers.html">Containers</a>
+</div>
+    
+</div>
+</div>
+</div>
+</td>
+<!--================= end Menu ==================-->
+<!--================= start Content ==================--><td>
+<div id="bodycol">
+<div class="app">
+<div align="center">
+<h1>Avalon Framework - Guide - OOP best Practices</h1>
+</div>
+<div class="h3">
+  
+  
+    
+<div class="h3">
+<h3>Introduction</h3>
+</div>
+
+      
+<p>
+        While Avalon is not really about Object-Oriented Programming (OOP)
+        (we go much further), some of its concepts are important in
+        any programming project, so we summarise the 12 rules for code reuse
+        as given in
+        <a href="http://www.laputan.org/drc/drc.html">
+          "Designing Reusable Classes"
+        </a> by Ralph E. Johnson and Brian Foote (an excellent book).
+      </p>
+
+      
+<p>
+        Note that a good knowledge of the basic OOP concepts is a requirement for
+        understanding any of this. Many books deal with this, one that is freely
+        available online is
+        <a href="http://www.mindview.net/Books/TIJ/">
+          "Thinking in Java"
+        </a> by Bruce Eckel (also a recommended read).
+      </p>
+    
+    
+<div class="h3">
+<h3>Recursion Introduction</h3>
+</div>
+
+      
+<p>
+        Use the same interface for communication with components of
+        the same type.  It allows the swapping of those components
+        for other components of the same type without breaking existing
+        code.
+      </p>
+      
+<p>
+        If you need additional functionality, either create proxy
+        objects that implement the interface, or add it by subclassing
+        (hence the name "Recursion Introduction").  Even if
+        there is no recursion happening, it appears to operate in the
+        same manner.
+      </p>
+    
+    
+<div class="h3">
+<h3>Eliminate Case Analysis</h3>
+</div>
+
+      
+<p>
+        Avoid testing to see if an object is an instance of a particular
+        class.  Usually, if you think you need that approach then a
+        redesign will help immensely.
+      </p>
+    
+    
+<div class="h3">
+<h3>Reduce the Number of Arguments</h3>
+</div>
+
+      
+<p>
+        Methods with a half-dozen arguments are hard to read, and can
+        usually be accomplished with an object that represents that
+        set of arguments.  It also makes it easier to track down the
+        problems.
+      </p>
+    
+    
+<div class="h3">
+<h3>Reduce the Size of Methods</h3>
+</div>
+
+      
+<p>
+        Most of your methods should only need to be a few lines long.
+        Methods that are very long (like 50 lines or so) are too complex,
+        and should be considered guilty of bad design until proven
+        innocent.
+      </p>
+    
+    
+<div class="h3">
+<h3>The Top of the Class Hierarchy Should be Abstract</h3>
+</div>
+
+      
+<p>
+        In many cases it is beneficial to provide an abstract base class 
+        to extend for your specializations.  The majority of the 
+        functionality and behavior is well defined. This makes it easier
+        to decipher what the intents of the interface designer were.
+      </p>
+    
+    
+<div class="h3">
+<h3>Minimize Accesses to Variables</h3>
+</div>
+
+      
+<p>
+        This point formalizes the principles of data hiding.  Try not
+        to expose class attributes to other classes, but protect them
+        by methods.  If an attribute changes name, then you only have
+        one place to update the code instead of hundreds.
+      </p>
+    
+    
+<div class="h3">
+<h3>Subclasses Should be Specializations</h3>
+</div>
+
+      
+<p>
+        A [subclass] "is a" [superclass].  If what you
+        are trying to do is make a component into a ServiceManager,
+        then you are violating the spirit of the framework.  A better
+        approach is to use containment in that case (i.e. a [class]
+        "has a" [external class]).
+      </p>
+    
+    
+<div class="h3">
+<h3>Split Large Classes</h3>
+</div>
+
+      
+<p>
+        If a class has 50+ methods, then it is most likely trying to
+        do too much.  Look at separating the functionality into
+        separate components.  Like methods that are too long, classes
+        that violate this rule should be considered guilty of wrong
+        design until proven innocent.
+      </p>
+    
+    
+<div class="h3">
+<h3>Factor Implementation Differences Into Subcomponents</h3>
+</div>
+
+      
+<p>
+        If a subclass implements a method completely different from
+        the superclass, then it is not really a specialization.  It
+        should be split off from that class hierarchy tree.
+      </p>
+    
+    
+<div class="h3">
+<h3>Separate Methods that Do Not Communicate</h3>
+</div>
+
+      
+<p>
+        Sometimes in building a framework you run into a case where
+        you have different views of the same data.  In these cases,
+        you can have some attributes that describe how to generate
+        the data, and some attributes that describe the data itself.
+        It is better to separate these two views into separate classes.
+        The semantics are different enough to justify this solution.
+      </p>
+    
+    
+<div class="h3">
+<h3>Send Messages to components instead of to This</h3>
+</div>
+
+      
+<p>
+        The point of this point is that you want to build your framework
+        based on components, and not inheritance.  Avalon takes this
+        point to heart.  In order to illustrate, I will give two examples
+        of the same thing.  The scenario is that we have a data structure
+        that we want to output to an arbitrary format.
+      </p>
+      
+<p>
+        In the following example, we will use the Java <span class="codefrag">this</span>
+        object and an inheritance based framework.  As you can see, this
+        would be a bear to maintain, and it won't easily be extended.
+      </p>
+      
+<pre class="code">
+abstract class AbstractExampleDocument 
+{
+  // skip some code ...
+public void output(Example structure) 
+{
+    if( null != structure )
+    {
+      this.format( structure );
+    }
+}
+
+  protected void format(Example structure);
+}
+      </pre>
+      
+<p>
+        In the next example, we will use the Avalon component based
+        architecture.  There is a clean separation between the purpose
+        of the objects, and you can exchange and extend formatting
+        without worrying about any other concerns.
+      </p>
+      
+<pre class="code">
+class DefaultExampleDocument 
+{
+// skip some code ...
+public void output(Example structure) 
+{
+   ExampleFormatter formatter = 
+     (ExampleFormatter) manager.lookup(Roles.FORMATTER);
+   if( null != structure ) 
+   {
+     formatter.format(structure);
+   }
+}
+}
+      </pre>
+      
+<p>
+        An inheritance based framework (White Box) can be converted
+        into a component based framework (Black Box) structure by
+        replacing overridden methods with method calls (message sends)
+        to components.  Component based architecture is much more
+        flexible in this regard.
+      </p>
+    
+    
+<div class="h3">
+<h3>Eliminate Implicit Parameter Passing</h3>
+</div>
+
+      
+<p>
+        Just because two methods share the same information within the
+        class does not mean that it should be done in that manner.
+        Many times, the attribute that is shared should be passed
+        as a parameter of the method instead of directly accessing
+        the attribute.
+      </p>
+    
+  
+
+<div id="authors" align="right">by&nbsp;Leo Simons</div>
+</div>
+</div>
+</div>
+</td>
+<!--================= end Content ==================-->
+</tr>
+</tbody>
+</table>
+<!--================= end Main ==================-->
+<!--================= start Footer ==================-->
+<div id="footer">
+<table summary="footer" cellspacing="0" cellpadding="4" width="100%" border="0">
+<tbody>
+<tr>
+<!--================= start Copyright ==================-->
+<td colspan="2">
+<div align="center">
+<div class="copyright">
+              Copyright &copy; 2003&nbsp;The Apache Software Foundation.. All rights reserved.
+            </div>
+</div>
+</td>
+<!--================= end Copyright ==================-->
+</tr>
+<tr>
+<td align="left">
+<!--================= start Host ==================-->
+<!--================= end Host ==================--></td><td align="right">
+<!--================= start Credits ==================-->
+<div align="right">
+<div class="credit"></div>
+</div>
+<!--================= end Credits ==================-->
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!--================= end Footer ==================-->
+</body>
+</html>

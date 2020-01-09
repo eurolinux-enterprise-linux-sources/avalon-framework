@@ -1,0 +1,311 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<!--*** This is a generated file.  Do not edit.  ***-->
+<link rel="stylesheet" href="skin/tigris.css" type="text/css">
+<link rel="stylesheet" href="skin/mysite.css" type="text/css">
+<link rel="stylesheet" href="skin/site.css" type="text/css">
+<link media="print" rel="stylesheet" href="skin/print.css" type="text/css">
+<title>Avalon Framework - Guide - Patterns in Avalon</title>
+</head>
+<body bgcolor="white" class="composite">
+<!--================= start Banner ==================-->
+<div id="banner">
+<table width="100%" cellpadding="8" cellspacing="0" summary="banner" border="0">
+<tbody>
+<tr>
+<!--================= start Group Logo ==================-->
+<td align="left">
+<div class="groupLogo">
+<a href="http://www.apache.org/"><img border="0" class="logoImage" alt="Apache" src="images/group-logo.gif"></a>
+</div>
+</td>
+<!--================= end Group Logo ==================-->
+<!--================= start Project Logo ==================--><td align="right">
+<div class="projectLogo">
+<a href="http://avalon.apache.org/"><img border="0" class="logoImage" alt="Apache Avalon" src="images/project-logo.gif"></a>
+</div>
+</td>
+<!--================= end Project Logo ==================-->
+</tr>
+</tbody>
+</table>
+</div>
+<!--================= end Banner ==================-->
+<!--================= start Main ==================-->
+<table width="100%" cellpadding="0" cellspacing="0" border="0" summary="nav" id="breadcrumbs">
+<tbody>
+<!--================= start Status ==================-->
+<tr class="status">
+<td>
+<!--================= start BreadCrumb ==================--><a href=""></a><a href=""></a><a href=""></a>
+<!--================= end BreadCrumb ==================--></td><td id="tabs">
+<!--================= start Tabs ==================-->
+<div class="tab">
+<span class="unselectedTab"><a href="http://avalon.apache.org/">Avalon Home</a></span> | <span class="selectedTab"><a href="index.html"><font color="#000000">Framework</font></a></span> | <span class="unselectedTab"><a href="http://avalon.apache.org/components/">Components</a></span> | <span class="unselectedTab"><a href="http://avalon.apache.org/phoenix/">Phoenix</a></span> | <span class="unselectedTab"><a href="http://avalon.apache.org/seca/">SECA</a></span> | <span class="unselectedTab"><a href="http://avalon.apache.org/apps/">Apps</a></span>
+</div>
+<!--================= end Tabs ==================-->
+</td>
+</tr>
+</tbody>
+</table>
+<!--================= end Status ==================-->
+<table id="main" width="100%" cellpadding="8" cellspacing="0" summary="" border="0">
+<tbody>
+<tr valign="top">
+<!--================= start Menu ==================-->
+<td id="leftcol">
+<div id="navcolumn">
+<div class="menuBar">
+<div class="menu">
+<span class="menuLabel">Essentials</span>
+        
+<div class="menuItem">
+<a href="index.html">Overview</a>
+</div>
+        
+<div class="menuItem">
+<a href="getting-started.html">Getting Started</a>
+</div>
+        
+<div class="menuItem">
+<a href="http://avalon.apache.org/bindownload.cgi">Download</a>
+</div>
+    
+</div>
+<div class="menu">
+<span class="menuLabel">Guide</span>
+        
+<div class="menuItem">
+<a href="guide-oop-best-practices.html">OOP best Practices</a>
+</div>
+        
+<div class="menuItem">
+<a href="guide-patterns-what-are.html">What are Patterns?</a>
+</div>
+        
+<div class="menuItem">
+<span class="menuSelected">Patterns in Avalon</span>
+</div>
+        
+<div class="menuItem">
+<a href="guide-cop-what-is.html">What is COP?</a>
+</div>
+        
+<div class="menuItem">
+<a href="guide-cop-in-avalon.html">COP in Avalon</a>
+</div>
+        
+<div class="menuItem">
+<a href="guide-where-to-go-from-here.html">Where to Go from here</a>
+</div>
+    
+</div>
+<div class="menu">
+<span class="menuLabel">Reference</span>
+        
+<div class="menuItem">
+<a href="changes.html">Changes</a>
+</div>
+        
+<div class="menuItem">
+<a href="http://avalon.apache.org/framework/api/index.html">API Docs</a>
+</div>
+        
+<div class="menuItem">
+<a href="reference-the-lifecycle.html">The Lifecycle</a>
+</div>
+        
+<div class="menuItem">
+<a href="reference-containers.html">Containers</a>
+</div>
+    
+</div>
+</div>
+</div>
+</td>
+<!--================= end Menu ==================-->
+<!--================= start Content ==================--><td>
+<div id="bodycol">
+<div class="app">
+<div align="center">
+<h1>Avalon Framework - Guide - Patterns in Avalon</h1>
+</div>
+<div class="h3">
+  
+  
+    
+<div class="h3">
+<h3>Getting Started with Patterns</h3>
+</div>
+
+      
+<p>
+        Avalon takes many design patterns and architectural mindsets, and
+        implements the best ones for servers.  There are different kinds of
+        patterns that represent different aspects of Avalon. Avalon uses four
+        main conceptual patterns called Separation of Interface and
+        Implementation, Inversion of Control, Multi-Dimensional Separation
+        of Concerns, and Aspect Oriented Programming.  Avalon also uses several
+        architectural patterns like the Singleton and the Factory.
+      </p>
+    
+    
+<div class="h3">
+<h3>The Avalon Patterns in short</h3>
+</div>
+
+      
+<p>
+        We provide you with a short description of the patterns first, with a
+        detailed description of each pattern on a separate page.
+      </p>
+
+      
+<div class="h4">
+<h4>Separation of Interface and Implementation</h4>
+</div>
+
+        
+<p>
+
+<strong>Summary:</strong> The Separation of Interface and Implementation is
+        a core feature of the Java language. However, it is often misused so we
+        list it as one of the Avalon patterns, and our use of it is extensive.
+        </p>
+        
+<p>
+
+<a href="guide-patterns-soii.html">
+          More Information...
+        </a>
+
+</p>
+      
+
+      
+<div class="h4">
+<h4>Inversion of Control</h4>
+</div>
+
+        
+<p>
+
+<strong>Summary:</strong> Avalon not only has an inheritance hierarchy, but also a
+        component hierarchy. In this hierarchy, the control of program flow is
+        completely in the hands of the parent component(s), as soldiers in the
+        military take orders from their officers.
+        </p>
+        
+<p>
+
+<a href="guide-patterns-ioc.html">
+          More Information...
+        </a>
+
+</p>
+      
+
+      
+<div class="h4">
+<h4>Multi-Dimensional Separation of Concerns</h4>
+</div>
+
+        
+<p>
+
+<strong>Summary:</strong> You just read the introduction about patterns before
+        reading about Avalon's patterns because that enables you to reuse the
+        knowledge you gained about patterns in a context other than that of
+        Avalon. We do this with software as well.
+        </p>
+        
+<p>
+
+<a href="guide-patterns-soc.html">
+          More Information...
+        </a>
+
+</p>
+      
+
+      
+<div class="h4">
+<h4>Aspect-Oriented Programming</h4>
+</div>
+
+        
+<p>
+
+<strong>Summary:</strong> this is the next logical step ofter Separation of
+        Concerns. Many concerns cannot be centrally addressed using the standard
+        OOP mechanisms. Using AOP (which is an extension to OOP), we would be
+        able to do so in a simple fashion. As there is no good AOP facility
+        in Java, we use "aspect marker interfaces" and COP instead.
+        </p>
+      
+
+      
+<div class="h4">
+<h4>Component-Oriented Programming</h4>
+</div>
+
+        
+<p>
+
+<strong>Summary:</strong> The Avalon framework promotes black-box reuse at
+        every level. Doing so is commonly known as COP. This is so important
+        in Avalon we devote an
+        <a href="guide-cop-what-is.html">
+        entire section
+        </a>
+        to it.
+        </p>
+      
+    
+
+  
+
+<div id="authors" align="right">by&nbsp;Avalon Documentation Team</div>
+</div>
+</div>
+</div>
+</td>
+<!--================= end Content ==================-->
+</tr>
+</tbody>
+</table>
+<!--================= end Main ==================-->
+<!--================= start Footer ==================-->
+<div id="footer">
+<table summary="footer" cellspacing="0" cellpadding="4" width="100%" border="0">
+<tbody>
+<tr>
+<!--================= start Copyright ==================-->
+<td colspan="2">
+<div align="center">
+<div class="copyright">
+              Copyright &copy; 2003&nbsp;The Apache Software Foundation.. All rights reserved.
+            </div>
+</div>
+</td>
+<!--================= end Copyright ==================-->
+</tr>
+<tr>
+<td align="left">
+<!--================= start Host ==================-->
+<!--================= end Host ==================--></td><td align="right">
+<!--================= start Credits ==================-->
+<div align="right">
+<div class="credit"></div>
+</div>
+<!--================= end Credits ==================-->
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!--================= end Footer ==================-->
+</body>
+</html>

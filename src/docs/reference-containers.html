@@ -1,0 +1,354 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<!--*** This is a generated file.  Do not edit.  ***-->
+<link rel="stylesheet" href="skin/tigris.css" type="text/css">
+<link rel="stylesheet" href="skin/mysite.css" type="text/css">
+<link rel="stylesheet" href="skin/site.css" type="text/css">
+<link media="print" rel="stylesheet" href="skin/print.css" type="text/css">
+<title>Avalon Framework - Containers</title>
+</head>
+<body bgcolor="white" class="composite">
+<!--================= start Banner ==================-->
+<div id="banner">
+<table width="100%" cellpadding="8" cellspacing="0" summary="banner" border="0">
+<tbody>
+<tr>
+<!--================= start Group Logo ==================-->
+<td align="left">
+<div class="groupLogo">
+<a href="http://www.apache.org/"><img border="0" class="logoImage" alt="Apache" src="images/group-logo.gif"></a>
+</div>
+</td>
+<!--================= end Group Logo ==================-->
+<!--================= start Project Logo ==================--><td align="right">
+<div class="projectLogo">
+<a href="http://avalon.apache.org/"><img border="0" class="logoImage" alt="Apache Avalon" src="images/project-logo.gif"></a>
+</div>
+</td>
+<!--================= end Project Logo ==================-->
+</tr>
+</tbody>
+</table>
+</div>
+<!--================= end Banner ==================-->
+<!--================= start Main ==================-->
+<table width="100%" cellpadding="0" cellspacing="0" border="0" summary="nav" id="breadcrumbs">
+<tbody>
+<!--================= start Status ==================-->
+<tr class="status">
+<td>
+<!--================= start BreadCrumb ==================--><a href=""></a><a href=""></a><a href=""></a>
+<!--================= end BreadCrumb ==================--></td><td id="tabs">
+<!--================= start Tabs ==================-->
+<div class="tab">
+<span class="unselectedTab"><a href="http://avalon.apache.org/">Avalon Home</a></span> | <span class="selectedTab"><a href="index.html"><font color="#000000">Framework</font></a></span> | <span class="unselectedTab"><a href="http://avalon.apache.org/components/">Components</a></span> | <span class="unselectedTab"><a href="http://avalon.apache.org/phoenix/">Phoenix</a></span> | <span class="unselectedTab"><a href="http://avalon.apache.org/seca/">SECA</a></span> | <span class="unselectedTab"><a href="http://avalon.apache.org/apps/">Apps</a></span>
+</div>
+<!--================= end Tabs ==================-->
+</td>
+</tr>
+</tbody>
+</table>
+<!--================= end Status ==================-->
+<table id="main" width="100%" cellpadding="8" cellspacing="0" summary="" border="0">
+<tbody>
+<tr valign="top">
+<!--================= start Menu ==================-->
+<td id="leftcol">
+<div id="navcolumn">
+<div class="menuBar">
+<div class="menu">
+<span class="menuLabel">Essentials</span>
+        
+<div class="menuItem">
+<a href="index.html">Overview</a>
+</div>
+        
+<div class="menuItem">
+<a href="getting-started.html">Getting Started</a>
+</div>
+        
+<div class="menuItem">
+<a href="http://avalon.apache.org/bindownload.cgi">Download</a>
+</div>
+    
+</div>
+<div class="menu">
+<span class="menuLabel">Guide</span>
+        
+<div class="menuItem">
+<a href="guide-oop-best-practices.html">OOP best Practices</a>
+</div>
+        
+<div class="menuItem">
+<a href="guide-patterns-what-are.html">What are Patterns?</a>
+</div>
+        
+<div class="menuItem">
+<a href="guide-patterns-in-avalon.html">Patterns in Avalon</a>
+</div>
+        
+<div class="menuItem">
+<a href="guide-cop-what-is.html">What is COP?</a>
+</div>
+        
+<div class="menuItem">
+<a href="guide-cop-in-avalon.html">COP in Avalon</a>
+</div>
+        
+<div class="menuItem">
+<a href="guide-where-to-go-from-here.html">Where to Go from here</a>
+</div>
+    
+</div>
+<div class="menu">
+<span class="menuLabel">Reference</span>
+        
+<div class="menuItem">
+<a href="changes.html">Changes</a>
+</div>
+        
+<div class="menuItem">
+<a href="http://avalon.apache.org/framework/api/index.html">API Docs</a>
+</div>
+        
+<div class="menuItem">
+<a href="reference-the-lifecycle.html">The Lifecycle</a>
+</div>
+        
+<div class="menuItem">
+<span class="menuSelected">Containers</span>
+</div>
+    
+</div>
+</div>
+</div>
+</td>
+<!--================= end Menu ==================-->
+<!--================= start Content ==================--><td>
+<div id="bodycol">
+<div class="app">
+<div align="center">
+<h1>Avalon Framework - Containers</h1>
+</div>
+<div class="h3">
+  
+  
+    
+<div class="h3">
+<h3>Introduction</h3>
+</div>
+
+      
+<p>
+        There are various containers that are aware of the Avalon Framework interfaces.
+	This is a sort-of comprehensive list.
+      </p>
+    
+    
+<div class="h3">
+<h3>Standalone Containers</h3>
+</div>
+
+      
+<p>
+        These typically run from the command line and are launched via a legacy main() method.
+      </p>
+      
+<div class="h4">
+<h4>Avalon Phoenix</h4>
+</div>
+
+        
+<p>
+          This is a sister project to Avalon Framework.  It provides an environment
+          for launching multiple, isolated, more or less unrestricted server applications
+	  as hosted components.  These can be applications like a web server, RDBMS or
+	  EJB server. It provides many advanced features like automatic management, at the
+	  cost of a bit of complexity.
+          See <a href="http://avalon.apache.org/phoenix/index.html">Phoenix</a>.
+        </p>
+
+	
+<p>
+	  Phoenix is the oldest of the Avalon Containers; it is probably the most powerful
+	  and most widely used. While still in alpha, this hints at the fact that we find it
+	  to be not completely future complete, rather than an infantile project.
+	</p>
+      
+
+	
+<div class="h4">
+<h4>Avalon Excalibur's Tweety</h4>
+</div>
+
+	
+<p>
+	Tweety is almost the opposite of Phoenix. It is a recent development and written
+	exclusively as a teaching tool. It has no features whatsoever besides basic support
+	for the Avalon lifecycle. This results in a complete distribution the size of the
+	Phoenix bootstrapper.
+	See <a href="http://avalon.apache.org/excalibur/tweety">Tweety</a>
+	
+</p>
+	
+
+	
+<div class="h4">
+<h4>Myrmidon</h4>
+</div>
+
+	
+<p>
+	Myrmidon is a proposal for the kernel of
+	<a href="http://jakarta.apache.org/ant">Apache Ant</a> 2.
+	See <a href="http://cvs.apache.org/viewcvs.cgi/jakarta-ant/proposal/myrmidon/">Myrmidon</a>
+	
+</p>
+	
+    
+    
+<div class="h3">
+<h3>Embedded Containers</h3>
+</div>
+
+      
+<p>
+        These run inside another application (like a servlet engine) and are controlled by it.
+      </p>
+      
+<div class="h4">
+<h4>Excalibur Component Manager</h4>
+</div>
+
+        
+<p>
+          This is used by various applications like Cocoon. Cocoon is run inside the
+          Sun specified servlet context of a web-app.  It is designed for such
+          servlet-context reuse. ECM is the most stable of the containers (it is the
+	  only one with a stable release); it is also arguably the worst design.
+	  See <a href="http://avalon.apache.org/excalibur/component/">ECM</a>.
+        </p>
+      
+      
+<div class="h4">
+<h4>Fortress</h4>
+</div>
+
+        
+<p>
+          Fortress is meant as a future replacement of ECM. It fixes several of ECMs flaws
+	  like a mixup of concerns. It is built to be very extensible, and it includes
+	  support for custom lifecycle extensions. Fortress is still pre-alpha.
+	  See <a href="http://avalon.apache.org/excalibur/fortress/">Fortress</a>.
+        </p>
+      
+      
+<div class="h4">
+<h4>Merlin</h4>
+</div>
+
+        
+<p>
+          Another recent development is Merlin, which has a client API very similar to
+	  Phoenix (applications that can run within phoenix can run within merlin as
+	  well). Merlin is still pre-alpha.
+	</p>
+	
+<p>
+	  See <a href="http://home.osm.net/doc/merlin/index.html">Merlin</a>.
+        </p>
+      
+      
+<div class="h4">
+<h4>Plexus</h4>
+</div>
+
+        
+<p>
+          Plexus is a container under development that will become the basis of the
+	  services framework for a sister project to Avalon,
+	  <a href="http://jakarta.apache.org/turbine">Turbine</a>.
+        </p>
+	
+<p>
+		See <a href="http://tambora.zenplex.org/cgi-bin/cvsweb.cgi/plexus/">Plexus</a>.
+	</p>
+	
+<div class="frame note">
+<div class="label">Note</div>
+<div class="content">
+	Plexus is being developed outside of Avalon itself as an external project.
+	</div>
+</div>
+      
+      
+<div class="h4">
+<h4>Enterprise Object Broker (EOB)</h4>
+</div>
+
+        
+<p>
+          The reference implementation of this EJB-replacement container runs on top of
+          Phoenix.  EOB supports a subset of the Avalon Framework interfaces but allows
+          RPC publishing of arbitary interfaces apparent in a hosted components object
+          model.
+        </p>
+	
+<p>
+		  See <a href="http://eob.sourceforge.net/">EOB</a>.
+	</p>
+	
+<div class="frame note">
+<div class="label">Note</div>
+<div class="content">
+	EOB is an being developed outside of Avalon itself as an external project.
+	</div>
+</div>
+      
+     
+  
+
+<div id="authors" align="right">by&nbsp;Paul Hammant,&nbsp;Leo Simons</div>
+</div>
+</div>
+</div>
+</td>
+<!--================= end Content ==================-->
+</tr>
+</tbody>
+</table>
+<!--================= end Main ==================-->
+<!--================= start Footer ==================-->
+<div id="footer">
+<table summary="footer" cellspacing="0" cellpadding="4" width="100%" border="0">
+<tbody>
+<tr>
+<!--================= start Copyright ==================-->
+<td colspan="2">
+<div align="center">
+<div class="copyright">
+              Copyright &copy; 2003&nbsp;The Apache Software Foundation.. All rights reserved.
+            </div>
+</div>
+</td>
+<!--================= end Copyright ==================-->
+</tr>
+<tr>
+<td align="left">
+<!--================= start Host ==================-->
+<!--================= end Host ==================--></td><td align="right">
+<!--================= start Credits ==================-->
+<div align="right">
+<div class="credit"></div>
+</div>
+<!--================= end Credits ==================-->
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!--================= end Footer ==================-->
+</body>
+</html>

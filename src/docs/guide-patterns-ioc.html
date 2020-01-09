@@ -1,0 +1,320 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<!--*** This is a generated file.  Do not edit.  ***-->
+<link rel="stylesheet" href="skin/tigris.css" type="text/css">
+<link rel="stylesheet" href="skin/mysite.css" type="text/css">
+<link rel="stylesheet" href="skin/site.css" type="text/css">
+<link media="print" rel="stylesheet" href="skin/print.css" type="text/css">
+<title>Avalon Framework - Guide - Inversion of Control</title>
+</head>
+<body bgcolor="white" class="composite">
+<!--================= start Banner ==================-->
+<div id="banner">
+<table width="100%" cellpadding="8" cellspacing="0" summary="banner" border="0">
+<tbody>
+<tr>
+<!--================= start Group Logo ==================-->
+<td align="left">
+<div class="groupLogo">
+<a href="http://www.apache.org/"><img border="0" class="logoImage" alt="Apache" src="images/group-logo.gif"></a>
+</div>
+</td>
+<!--================= end Group Logo ==================-->
+<!--================= start Project Logo ==================--><td align="right">
+<div class="projectLogo">
+<a href="http://avalon.apache.org/"><img border="0" class="logoImage" alt="Apache Avalon" src="images/project-logo.gif"></a>
+</div>
+</td>
+<!--================= end Project Logo ==================-->
+</tr>
+</tbody>
+</table>
+</div>
+<!--================= end Banner ==================-->
+<!--================= start Main ==================-->
+<table width="100%" cellpadding="0" cellspacing="0" border="0" summary="nav" id="breadcrumbs">
+<tbody>
+<!--================= start Status ==================-->
+<tr class="status">
+<td>
+<!--================= start BreadCrumb ==================--><a href=""></a><a href=""></a><a href=""></a>
+<!--================= end BreadCrumb ==================--></td><td id="tabs">
+<!--================= start Tabs ==================-->
+<div class="tab">
+<span class="unselectedTab"><a href="http://avalon.apache.org/">Avalon Home</a></span> | <span class="selectedTab"><a href="index.html"><font color="#000000">Framework</font></a></span> | <span class="unselectedTab"><a href="http://avalon.apache.org/components/">Components</a></span> | <span class="unselectedTab"><a href="http://avalon.apache.org/phoenix/">Phoenix</a></span> | <span class="unselectedTab"><a href="http://avalon.apache.org/seca/">SECA</a></span> | <span class="unselectedTab"><a href="http://avalon.apache.org/apps/">Apps</a></span>
+</div>
+<!--================= end Tabs ==================-->
+</td>
+</tr>
+</tbody>
+</table>
+<!--================= end Status ==================-->
+<table id="main" width="100%" cellpadding="8" cellspacing="0" summary="" border="0">
+<tbody>
+<tr valign="top">
+<!--================= start Menu ==================-->
+<td id="leftcol">
+<div id="navcolumn">
+<div class="menuBar">
+<div class="menu">
+<span class="menuLabel">Essentials</span>
+        
+<div class="menuItem">
+<a href="index.html">Overview</a>
+</div>
+        
+<div class="menuItem">
+<a href="getting-started.html">Getting Started</a>
+</div>
+        
+<div class="menuItem">
+<a href="http://avalon.apache.org/bindownload.cgi">Download</a>
+</div>
+    
+</div>
+<div class="menu">
+<span class="menuLabel">Guide</span>
+        
+<div class="menuItem">
+<a href="guide-oop-best-practices.html">OOP best Practices</a>
+</div>
+        
+<div class="menuItem">
+<a href="guide-patterns-what-are.html">What are Patterns?</a>
+</div>
+        
+<div class="menuItem">
+<a href="guide-patterns-in-avalon.html">Patterns in Avalon</a>
+</div>
+        
+<div class="menuItem">
+<a href="guide-cop-what-is.html">What is COP?</a>
+</div>
+        
+<div class="menuItem">
+<a href="guide-cop-in-avalon.html">COP in Avalon</a>
+</div>
+        
+<div class="menuItem">
+<a href="guide-where-to-go-from-here.html">Where to Go from here</a>
+</div>
+    
+</div>
+<div class="menu">
+<span class="menuLabel">Reference</span>
+        
+<div class="menuItem">
+<a href="changes.html">Changes</a>
+</div>
+        
+<div class="menuItem">
+<a href="http://avalon.apache.org/framework/api/index.html">API Docs</a>
+</div>
+        
+<div class="menuItem">
+<a href="reference-the-lifecycle.html">The Lifecycle</a>
+</div>
+        
+<div class="menuItem">
+<a href="reference-containers.html">Containers</a>
+</div>
+    
+</div>
+</div>
+</div>
+</td>
+<!--================= end Menu ==================-->
+<!--================= start Content ==================--><td>
+<div id="bodycol">
+<div class="app">
+<div align="center">
+<h1>Avalon Framework - Guide - Inversion of Control</h1>
+</div>
+<div class="h3">
+  
+  
+    
+<div class="h3">
+<h3>Introduction</h3>
+</div>
+
+      
+<p>
+        One of the key design principles behind Avalon is the principle
+        of <em>Inversion of Control</em>.  <em>Inversion of Control</em> is
+        a concept promoted by one of the founders of the Avalon project,
+        <a href="mailto:stefano.at.apache.org">Stefano Mazzocchi</a>.  The
+        principle enforces security by design.
+      </p>
+      
+<p>
+        It is difficult to track down one paper that defines this pattern
+        at length, so here are a couple of different definitions of
+        <em>Inversion of Control</em>.
+      </p>
+    
+      
+<div class="h3">
+<h3>What it Means</h3>
+</div>
+
+        
+<p>
+          The Framework plays the role of the main program in coordinating
+          and sequencing events and application activity.
+        </p>
+        
+<p>
+          A designer sets up a chain among objects that can all react
+          to certain messages in a delegation hierarchy.  There is one
+	  major semantic detail: Inversion of Control refers to a parent
+	  object <em>controlling</em> a child object.  With this distinction,
+	  the SAX API is not considered Inversion of Control because its
+	  purpose is to send <em>information</em> from a source to a handler.
+        </p>
+        
+<div class="h4">
+<h4>Definition by Analogy</h4>
+</div>
+
+          
+<p>
+            There are a couple of different analogies that make
+            understanding <em>Inversion of Control</em> easier.  We
+            experience this in many different ways in regular life,
+            so we are borrowing the form in code.  One analogy is called
+	    the "Chain of Command" in the military.
+          </p>
+          
+<div class="h2">
+<h2>Chain of Command</h2>
+</div>
+
+            
+<p>
+              This is probably the clearest parallel to <em>Inversion
+              of Control</em>.  The military provides each new recruit
+              with the basic things he needs to operate at his rank,
+              and issues commands that recruit must obey.  The same
+              principle applies in code.  Each component is given the
+              provisions it needs to operate by the instantiating
+              entity (i.e. Commanding Officer in this analogy).  The
+              instantiating entity then acts on that component how it
+              needs to act.
+            </p>
+	    
+<p>
+	      There are some deficiencies in this analogy as some military
+	      or ex-military people have explained to me.  In the military,
+	      <strong>any</strong> Commanding Officer can issue commands to
+	      anyone under his or her rank.  In the development world, to
+	      ensure proper security, this is not a pattern you want in your
+	      software.  In Avalon, Inversion of Control (IoC) is from one
+	      parent (controlling) object to a child (controlled) component.
+	      A parent may have many children, but children only have one
+	      parent.
+	    </p>
+          
+        
+      
+      
+<div class="h3">
+<h3>How to Apply It</h3>
+</div>
+
+        
+<p>
+          
+<em>Inversion of Control</em> is applied in a very simple
+          manner.  Basically, it means that the component architecture
+          employs a <em>passive</em> structure.  See the following code:
+        </p>
+        
+<pre class="code">
+class MyComponent 
+    implements LogEnabled
+{
+    Logger logger;
+
+    public enableLogging(Logger newLogger)
+    {
+        this.logger = newLogger;
+    }
+
+    myMethod() 
+    {
+        logger.info("Hello World!");
+    }
+}
+        </pre>
+        
+<p>
+          The parent of MyComponent instantiates MyComponent, sets the
+          Logger, and calls myMethod.  The component is not autonomous,
+	  and is given a logger that has been configured by the parent.
+        </p>
+        
+<p>
+          The MyComponent class has no state apart from the parent, and
+          has no way of obtaining a reference to the logger implementation
+          without the parent giving it the implementation it needs.
+        </p>
+      
+      
+<div class="h3">
+<h3>IOC promotes Security</h3>
+</div>
+
+      
+<p>A big advantage of IOC for server applications is that it promotes
+      security. You can read an analysis about this
+      <a href="guide-patterns-ioc-security.html">
+         here
+      </a>.</p>
+      
+  
+
+<div id="authors" align="right">by&nbsp;Berin Loritsch,&nbsp;Leo Simons</div>
+</div>
+</div>
+</div>
+</td>
+<!--================= end Content ==================-->
+</tr>
+</tbody>
+</table>
+<!--================= end Main ==================-->
+<!--================= start Footer ==================-->
+<div id="footer">
+<table summary="footer" cellspacing="0" cellpadding="4" width="100%" border="0">
+<tbody>
+<tr>
+<!--================= start Copyright ==================-->
+<td colspan="2">
+<div align="center">
+<div class="copyright">
+              Copyright &copy; 2003&nbsp;The Apache Software Foundation.. All rights reserved.
+            </div>
+</div>
+</td>
+<!--================= end Copyright ==================-->
+</tr>
+<tr>
+<td align="left">
+<!--================= start Host ==================-->
+<!--================= end Host ==================--></td><td align="right">
+<!--================= start Credits ==================-->
+<div align="right">
+<div class="credit"></div>
+</div>
+<!--================= end Credits ==================-->
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!--================= end Footer ==================-->
+</body>
+</html>

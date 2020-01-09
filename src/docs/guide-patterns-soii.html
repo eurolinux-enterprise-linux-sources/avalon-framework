@@ -1,0 +1,383 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<!--*** This is a generated file.  Do not edit.  ***-->
+<link rel="stylesheet" href="skin/tigris.css" type="text/css">
+<link rel="stylesheet" href="skin/mysite.css" type="text/css">
+<link rel="stylesheet" href="skin/site.css" type="text/css">
+<link media="print" rel="stylesheet" href="skin/print.css" type="text/css">
+<title>Avalon Framework - Guide - Separation of Interface and Implementation</title>
+</head>
+<body bgcolor="white" class="composite">
+<!--================= start Banner ==================-->
+<div id="banner">
+<table width="100%" cellpadding="8" cellspacing="0" summary="banner" border="0">
+<tbody>
+<tr>
+<!--================= start Group Logo ==================-->
+<td align="left">
+<div class="groupLogo">
+<a href="http://www.apache.org/"><img border="0" class="logoImage" alt="Apache" src="images/group-logo.gif"></a>
+</div>
+</td>
+<!--================= end Group Logo ==================-->
+<!--================= start Project Logo ==================--><td align="right">
+<div class="projectLogo">
+<a href="http://avalon.apache.org/"><img border="0" class="logoImage" alt="Apache Avalon" src="images/project-logo.gif"></a>
+</div>
+</td>
+<!--================= end Project Logo ==================-->
+</tr>
+</tbody>
+</table>
+</div>
+<!--================= end Banner ==================-->
+<!--================= start Main ==================-->
+<table width="100%" cellpadding="0" cellspacing="0" border="0" summary="nav" id="breadcrumbs">
+<tbody>
+<!--================= start Status ==================-->
+<tr class="status">
+<td>
+<!--================= start BreadCrumb ==================--><a href=""></a><a href=""></a><a href=""></a>
+<!--================= end BreadCrumb ==================--></td><td id="tabs">
+<!--================= start Tabs ==================-->
+<div class="tab">
+<span class="unselectedTab"><a href="http://avalon.apache.org/">Avalon Home</a></span> | <span class="selectedTab"><a href="index.html"><font color="#000000">Framework</font></a></span> | <span class="unselectedTab"><a href="http://avalon.apache.org/components/">Components</a></span> | <span class="unselectedTab"><a href="http://avalon.apache.org/phoenix/">Phoenix</a></span> | <span class="unselectedTab"><a href="http://avalon.apache.org/seca/">SECA</a></span> | <span class="unselectedTab"><a href="http://avalon.apache.org/apps/">Apps</a></span>
+</div>
+<!--================= end Tabs ==================-->
+</td>
+</tr>
+</tbody>
+</table>
+<!--================= end Status ==================-->
+<table id="main" width="100%" cellpadding="8" cellspacing="0" summary="" border="0">
+<tbody>
+<tr valign="top">
+<!--================= start Menu ==================-->
+<td id="leftcol">
+<div id="navcolumn">
+<div class="menuBar">
+<div class="menu">
+<span class="menuLabel">Essentials</span>
+        
+<div class="menuItem">
+<a href="index.html">Overview</a>
+</div>
+        
+<div class="menuItem">
+<a href="getting-started.html">Getting Started</a>
+</div>
+        
+<div class="menuItem">
+<a href="http://avalon.apache.org/bindownload.cgi">Download</a>
+</div>
+    
+</div>
+<div class="menu">
+<span class="menuLabel">Guide</span>
+        
+<div class="menuItem">
+<a href="guide-oop-best-practices.html">OOP best Practices</a>
+</div>
+        
+<div class="menuItem">
+<a href="guide-patterns-what-are.html">What are Patterns?</a>
+</div>
+        
+<div class="menuItem">
+<a href="guide-patterns-in-avalon.html">Patterns in Avalon</a>
+</div>
+        
+<div class="menuItem">
+<a href="guide-cop-what-is.html">What is COP?</a>
+</div>
+        
+<div class="menuItem">
+<a href="guide-cop-in-avalon.html">COP in Avalon</a>
+</div>
+        
+<div class="menuItem">
+<a href="guide-where-to-go-from-here.html">Where to Go from here</a>
+</div>
+    
+</div>
+<div class="menu">
+<span class="menuLabel">Reference</span>
+        
+<div class="menuItem">
+<a href="changes.html">Changes</a>
+</div>
+        
+<div class="menuItem">
+<a href="http://avalon.apache.org/framework/api/index.html">API Docs</a>
+</div>
+        
+<div class="menuItem">
+<a href="reference-the-lifecycle.html">The Lifecycle</a>
+</div>
+        
+<div class="menuItem">
+<a href="reference-containers.html">Containers</a>
+</div>
+    
+</div>
+</div>
+</div>
+</td>
+<!--================= end Menu ==================-->
+<!--================= start Content ==================--><td>
+<div id="bodycol">
+<div class="app">
+<div align="center">
+<h1>Avalon Framework - Guide - Separation of Interface and Implementation</h1>
+</div>
+<div class="h3">
+  
+  
+    
+<div class="h3">
+<h3>Introduction</h3>
+</div>
+
+      
+<p>
+        The core concept of interface and implementation separation is built into
+        Java itself in that it has interfaces and classes.  Many toolkits have
+        been developed along the lines of an API / implementation separation.
+        One such toolkit is the SAX API and the multiple XML parsers that implement
+        it. Developers are quite happy using Apache's Xerces via the SAX API and
+        understand that SAX represents the interface and Xerces an implementation.
+        We notice that a lot of developers are happy to use interface/impl
+        separated tools, but not to make them.  We will try to justify in this
+        document why we think people making applications should define
+        interface/impl boundaries early in the design cycle.
+      </p>
+      
+<div class="h4">
+<h4>Justification</h4>
+</div>
+
+        
+<p>
+          The main reason we do it is because:
+        </p>
+          
+<ol>
+              
+<li>it forces you to decouple different modules/components/objects</li>
+              
+<li>if specified correctly allows you to easily change the implementation of
+                  the interface/contract in the future</li>
+              
+<li>makes it possible for a user to read documentation about the interface
+                  without having the implementation details clutter up their perception</li>
+              
+<li>increases the possibility of reuse in a larger application</li>
+          
+</ol>
+        
+<p>
+          If you are building objects with the aim of reuse then [3] is important but
+          most people don't build for reuse (and most XP advocates say you should just
+          plan to use not reuse) and thus [1] and [2] are more important. If you feel
+          like documenting that and expanding this then feel free to.
+        </p>
+      
+      
+<div class="h4">
+<h4>Example</h4>
+</div>
+
+        
+<p>
+          Let us hope this is not necessary:
+        </p>
+
+<pre class="code">
+package helloworld;
+public interface HelloWorld {
+    void sayHello(String greeting);
+}
+
+package helloworld.impl.default;
+public class DefaultHelloWorld implements HelloWorld {
+    void sayHello(String greeting) {
+        System.out.println("HelloWorld Greeting: " + greeting);
+    }
+}
+
+package helloworld.impl.remote;
+public class RemoteHelloWorld implements HelloWorld {
+    private RemoteMessager mRemoteMessager;
+    public RemoteHelloWorld(RemoteMessager rm) {
+        RemoteMessager = rm;
+    }
+    void sayHello(String greeting) {
+        rm.sendMessage("HelloWorld Greeting: " + greeting);
+    }
+}
+</pre>
+
+      
+      
+<div class="h4">
+<h4>History</h4>
+</div>
+
+        
+<p>
+          We are referring to this pattern as <strong>interface/impl separation</strong>.
+          Wiley's Patterns in Java book refers to it simply as 'Interface', but we feel
+          that the word interface is overloaded enough in English and computing.
+        </p>
+        
+<p>
+          It might be true to say that this is 'API/implementation separation', but
+          this too could be confusing as the aforementioned SAX is not quite a
+          pure set of interfaces. It has a static factory that thunks in an
+          implementation that all subsequent calls to the factory method will be
+          forced to use. See Anti-Patterns below.
+        </p>
+        
+<p>
+          Better might be 'separation of implementation and the interface/contract' as
+          that is quite correct, but a tad unwieldy.
+        </p>
+      
+    
+    
+<div class="h3">
+<h3>Related Topics</h3>
+</div>
+
+      
+<div class="h4">
+<h4>Implementation Hiding</h4>
+</div>
+
+        
+<p>
+          Once a tool is split into interface and impl, it is possible for a container
+          to hide the implementation.  Most containers already use dynamic proxys
+          (available in the JDK since 1.3), but we are talking about having the classes
+          of the implementation hidden from classes using the interface.
+        </p>
+        
+<p>
+          To do this, it is easiest to mount the impl classes in a separate classloader
+          to the classloader that the interface-using classes are mounted in.  The
+          interfaces being mounted in a classloader that is visible to both.
+        </p>
+        
+<p>
+          This is not a new proposition.  Sun defined the servlet spec, and included
+          rules about implementation hiding for hosted servlets.  Essentially,
+          instantiated servlets are only allowed to 'see' classes from the JDK, their
+          own WAR file and those of the Servlet API itself.  Tomcat correctly hides
+          the implementation of the Servlet API from the hosted servlets.
+        </p>
+        
+<p>
+          To actually achieve this separation, many containers (including those from
+          the Avalon project) require that the interface and impl are in separate jars.
+          Or to put it another way, there is no point separating your interface and impl
+          classes if you are going to distribute them in the same jar.
+        </p>
+      
+      
+<div class="h4">
+<h4>Kernel, Client API, Hosted Components</h4>
+</div>
+
+        
+<p>
+          This is building on the previous section, and in short is referred to as K/CAPI/HC.
+          Basically the kernel mounts hosted components and satisfies their need for a
+          client API. However the kernel wants to hide its implementation from the hosted
+          components.
+        </p>
+        
+<p>
+          An EJB container is another good example of this.  EntityBean, SessionBean etc. is
+          the client API.  The hosted components are the beans, and the container has a
+          kernel.  It builds a complex tree of classloaders to separate its implementation,
+          the client API, the JDK's runtime jar (that always being in the system or
+          primordial classloader), and the hosted components.
+        </p>
+        
+<p>
+          The central message of this is that if you have interface/impl separated your
+          tool, and are doing tricky things with more classloaders in the implementation,
+          please make sure you do not assume that the parent classloader of any classloader
+          is the system classloader.  If your reusable tool has been taken by another team
+          and at some non root place in a classloader tree, then the tools will fail if
+          you have made such assumptions.
+        </p>
+      
+      
+<div class="h4">
+<h4>Anti-Patterns</h4>
+</div>
+
+        
+<p>
+          SAX, mentioned in multiple contexts in this document, is also an example of
+          where the design can go wrong.  The Factory is static (that in itself is an
+          anti-pattern to IoC).  Despite giving the appearance of having the ability
+          to generate a parser based on the implementation's class name, only the first
+          caller of that method will register a parser for the whole environment to use.
+        </p>
+        
+<p>
+          Given that the SAX API is now in the JDK, the environment we allude to above
+          is the whole JVM.  This is a problem because in a very complex application
+          with differing concurrent needs for implementation of parsers, not all can be
+          met if the SAX API is used for making parsers.
+        </p>
+      
+    
+  
+
+<div id="authors" align="right">by&nbsp;Paul Hammant,&nbsp;Peter Donald</div>
+</div>
+</div>
+</div>
+</td>
+<!--================= end Content ==================-->
+</tr>
+</tbody>
+</table>
+<!--================= end Main ==================-->
+<!--================= start Footer ==================-->
+<div id="footer">
+<table summary="footer" cellspacing="0" cellpadding="4" width="100%" border="0">
+<tbody>
+<tr>
+<!--================= start Copyright ==================-->
+<td colspan="2">
+<div align="center">
+<div class="copyright">
+              Copyright &copy; 2003&nbsp;The Apache Software Foundation.. All rights reserved.
+            </div>
+</div>
+</td>
+<!--================= end Copyright ==================-->
+</tr>
+<tr>
+<td align="left">
+<!--================= start Host ==================-->
+<!--================= end Host ==================--></td><td align="right">
+<!--================= start Credits ==================-->
+<div align="right">
+<div class="credit"></div>
+</div>
+<!--================= end Credits ==================-->
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!--================= end Footer ==================-->
+</body>
+</html>
