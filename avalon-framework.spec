@@ -33,7 +33,7 @@
 
 Name:        avalon-%{short_name}
 Version:     4.3
-Release:     10%{?dist}
+Release:     9%{?dist}
 Epoch:       0
 Summary:     Java components interfaces
 License:     ASL 2.0
@@ -158,9 +158,6 @@ popd
 %{_javadocdir}/%{name}
 
 %changelog
-* Fri Dec 27 2013 Daniel Mach <dmach@redhat.com> - 04.3-10
-- Mass rebuild 2013-12-27
-
 * Fri Jun 28 2013 Mikolaj Izdebski <mizdebsk@redhat.com> - 0:4.3-9
 - Rebuild to regenerate API documentation
 - Resolves: CVE-2013-1571
